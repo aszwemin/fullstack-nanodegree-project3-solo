@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+{% block genre_list %}
+  <ul class="genres">
+  {% for genre in genres %}
+      <li>
+        <a href={{url_for('movie_list_for_genre', genre_id=genre.id)}}>
+          <p>{{genre.name}}</p>
+        </a>
+      </li>
+  {% endfor %}
+  </ul>
+{% endblock %}
+{% block movie_list %}
+  {% if logged_in %}
+  <p><a href={{url_for('new_movie', genre_id=0)}} class="add-movie">Add new movie</a></p>
+  {% endif %}
+  {% if movies %}
+    <h2>Latest Items</h2>
+    {% for i in movies %}
+      <div>
+        <p><a href={{url_for('show_movie', genre_id=i.genre_id, movie_id=i.id)}} class="movie">{{i.name}} ({{i.genre_name}})</a></p>
+      </div>
+    {% endfor %}
+  {% else %}
+    <p>There are no movies or genres</p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "genres.html" %}
+{% block movie_list %}
+  {% if logged_in %}
+    <p><a href={{url_for('new_movie', genre_id=genre.id)}} class="add-movie">Add new movie</a></p>
+  {% endif %}
+  <h1>{{genre.name}} ({{movies.count()}} movies)</h1>
+
+  {% if movies.count() %}
+    {% for m in movies %}
+    <div>
+      <p><a href={{url_for('show_movie', genre_id=genre.id, movie_id=m.id)}} class="movie">{{m.name}}</p>
+    </div>
+    {% endfor %}
+  {% else %}
+    <p>There are no movies for this genre</p>
+  {% endif %}
+{% endblock %}

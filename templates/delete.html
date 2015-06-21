@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% block movie_list %}
+  <h1>{{ genre.name }}</h1>
+  <form action="{{ url_for('delete_movie', genre_id=genre.id, movie_id=movie.id) }}" method='POST'>
+    <p>Are you sure you want to delete {{ movie.name }}?</p>
+    <input type="submit" value="Delete" />
+    <a href="{{ url_for('movie_list_for_genre', genre_id=genre.id) }}">Cancel</a>
+  </form>
+{% endblock %}

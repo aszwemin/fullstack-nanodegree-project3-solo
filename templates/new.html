@@ -1,0 +1,31 @@
+{% extends 'layout.html' %}
+{% block movie_list %}
+  <h2>Add a new movie</h2>
+  <form action={{ url_for('new_movie', genre_id=selected)}} method='POST'>
+    <p>Name: <input type="text" size="30" name="name" /></p>
+    <p>Description:</p>
+    <p><textarea name="description"></textarea></p>
+    <p>
+      Year:
+      <select name="year">
+      {% for year in years %}
+        <option value={{year}}>{{year}}</option>
+      {% endfor %}
+      </select>
+    </p>
+    <p>Director: <input type="text" size="30" name="director" /></p>
+    <p>
+      <select name="genre_id">
+        {% for g in genres %}
+        <option value={{g.id}} {{'selected' if g.id==selected else ''}}>{{g.name}}</option>
+        {% endfor %}
+      </select>
+    </p>
+    <p><input type="submit" value="Create" /></p>
+    {% if selected %}
+    <a href="{{ url_for('movie_list_for_genre', genre_id=selected) }}">Cancel</a>
+    {% else %}
+    <a href="{{ url_for('genres') }}">Cancel</a>
+    {% endif %}
+  </form>
+{% endblock %}

@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    width: 100%;
+    height: 37px;
+    background-color: #6699ff;
+    padding: 10px;
+    margin: 0;
+}
+
+.header .title {
+    margin: 0;
+    width: 90%;
+    float: left;
+}
+
+.header .title a {
+    text-decoration: none;
+    color: white;
+    margin: 0;
+}
+
+.header .login-logout {
+    width: 10%;
+    float: right;
+}
+
+.flash-messages {
+    list-style: none;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+}
+
+.add-movie {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.movie {
+    text-decoration: none;
+    color: blue;
+}
+
+.contents {
+    margin: 0 10%;
+}
+
+.genre-list {
+    width: 20%;
+    float: left;
+}
+
+.movie-list {
+    width: 80%;
+    float: left;
+}
+
+.genres {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+.genres li {
+    height: 30px;
+    background-color: #e0ebff;
+}
+
+.genres li:hover {
+    background-color: #a3c2ff;
+}
+
+.genres a {
+    padding: 5px;
+    display: block;
+    text-decoration: none;
+    color: black;
+}
+
+.genres p {
+    margin: 0;
+}
